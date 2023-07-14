@@ -1,6 +1,10 @@
 <?xml version="1.0"?>
 <launch>
-  <arg name="robot_ip" doc="The robot controller's IP address"/>
+  <!-- <arg name="robot_ip" doc="The robot controller's IP address" default="192.168.156.131"/> -->
+  <!--arg name="robot_ip" doc="The robot controller's IP address" default="192.168.135.111"/-->
+  
+  <!--robot hardware <arg name="robot_ip" doc="The robot controller's IP address" default="192.168.1.2"/>-->
+  <arg name="robot_ip" doc="The robot controller's IP address" default="192.168.1.100"/>
 
   <!-- Enable DEBUG output for all ABB nodes -->
   <arg name="debug" default="false"/>
@@ -40,7 +44,8 @@
     <rosparam file="$(find abb_robot_bringup_examples)/config/ex2_controllers.yaml" command="load"/>
 
     <!-- Two 'ros_control' controller spawners (stopped for the controller that command motions) -->
-    <node pkg="controller_manager" type="spawner" name="started" args="egm_state_controller joint_state_controller"/>
-    <node pkg="controller_manager" type="spawner" name="stopped" args="--stopped joint_group_velocity_controller"/>
+    <node pkg="controller_manager" type="spawner" name="started" args="egm_state_controller joint_state_controller joint_trajectory_controller"/>
+    <node pkg="controller_manager" type="spawner" name="stopped" args="--stopped joint_group_position_controller"/>
+
   </group>
 </launch>

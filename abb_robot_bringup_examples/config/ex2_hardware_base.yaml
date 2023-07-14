@@ -10,5 +10,5 @@ no_service_timeout: false
 # Note: These lists are intended for passive controllers, which doesn't control motion.
 ros_control:
   controllers:
-    always_ok_to_start: ["egm_state_controller", "joint_state_controller"]
-    ok_to_keep_running: ["egm_state_controller", "joint_state_controller"]
+    always_ok_to_start: ["egm_state_controller", "joint_state_controller", "compliance_controller", "joint_trajectory_controller", "force_controller","joint_group_velocity_controller", "joint_group_position_controller"]
+    ok_to_keep_running: ["egm_state_controller", "joint_state_controller", "compliance_controller", "joint_trajectory_controller", "force_controller", "joint_group_velocity_controller", "joint_group_position_controller"]
